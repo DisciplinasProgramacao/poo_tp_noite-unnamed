@@ -5,7 +5,7 @@ O objetivo do projeto é desenvolver um sistema de software para empresas de str
 ## Alunos integrantes da equipe
 
 * Artur Moreira De Carvalho
-* Rafael Leal
+* Rafael Gonçalves Leal
 * Vinicius
 * pedro veloso soares
 * Nome completo do aluno 4
