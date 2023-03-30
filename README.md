@@ -7,7 +7,7 @@ O objetivo do projeto é desenvolver um sistema de software para empresas de str
 * Artur Moreira De Carvalho
 * Rafael Leal
 * Vinicius
-* Pedro
+* pedro veloso soares
 * Nome completo do aluno 4
 * Nome completo do aluno 4
 
