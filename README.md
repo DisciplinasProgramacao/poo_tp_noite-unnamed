@@ -7,12 +7,10 @@ O objetivo do projeto é desenvolver um sistema de software para empresas de str
 * Artur Moreira De Carvalho
 * Rafael Gonçalves Leal
 * Vinicius
-* pedro veloso soares
-* Nome completo do aluno 4
-* Nome completo do aluno 4
+* Pedro Veloso Soares
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
+* João Caram
 
 
