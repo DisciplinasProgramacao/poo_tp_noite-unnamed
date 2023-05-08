@@ -8,6 +8,7 @@ O objetivo do projeto é desenvolver um sistema de software para empresas de str
 * Rafael Gonçalves Leal
 * Vinicius Almeida de Avila
 * Pedro Veloso Soares
+* Lucas Bryan Silva Quintas
 
 ## Professores responsáveis
 
