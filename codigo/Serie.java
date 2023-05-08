@@ -21,6 +21,8 @@ public class Serie {
             this.qtdVisualizacoes = qtdVisualizacoes;
             this.id = id;
         }
+
+        
         
         public static boolean temNome(String nome) {
         	return nome.equals(nome);

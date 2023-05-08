@@ -4,8 +4,9 @@ public class Cliente {
     private int id;
     private String nome;
     private String senha;
-    private LinkedList<Serie> seriesFuturas;
-    private LinkedList<Serie> seriesAssistidas;
+    private String email;
+    public LinkedList<Serie> seriesFuturas;
+    public LinkedList<Serie> seriesAssistidas;
     
 
      /**
@@ -18,47 +19,25 @@ public class Cliente {
         @param seriesAssistidas lista de series assistidas pelo cliente  
         */
 
-    public Cliente(int id, String nome, String senha, LinkedList<Serie> seriesFuturas, LinkedList<Serie> seriesAssistidas){
+    public Cliente(int id, String nome, String senha, String email, LinkedList<Serie> seriesFuturas, LinkedList<Serie> seriesAssistidas){
         this.id = id;
         this.nome = nome;
         this.senha = senha;
+        this.email = email;
         this.seriesFuturas = seriesFuturas;
         this.seriesAssistidas = seriesAssistidas;
     }
 
-    //método para adicionar uma serie na lista de series para ver futuramente
-    public void adicionarSerieFutura(Serie serie){
-        seriesFuturas.add(serie);
+    public LinkedList<Serie> getSeriesAssistidas(){
+        return seriesAssistidas;
     }
 
-    //método para remover uma serie da lista de series para ver futuramente
-    /**
-      Remove uma série da lista de séries para ver
-      @param nomeDaSerie nome da série a ser removida
-     */
-    public void retirarDaLista(String nomeDaSerie) {
-        if (Serie.temNome(nomeDaSerie)) {
-        for (Serie serie : seriesFuturas)
-                seriesFuturas.remove(serie);
-        }
+    public String getEmail(){
+        return this.email;
     }
 
-    //método para adicionar uma serie na lista de series assistidas
-    public void adicionarSerieAssitida(Serie serie){
-        seriesAssistidas.add(serie);
-    }
-
-    //método para remover uma serie da lista de series assistidas
-
-    /**
-      Remove uma série da lista de séries assistidas
-      @param nomeDaSerie nome da série a ser removida
-     */
-    public void retirarDaListaAssistidas(String nomeDaSerie) {
-        if (Serie.temNome(nomeDaSerie)) {
-        for (Serie serie : seriesAssistidas)
-            seriesAssistidas.remove(serie);
-        }
+    public String getSenha(){
+        return senha;
     }
 
     //método para buscar uma serie na lista de series para assistir futuramente e adicionar em uma outra lista de resultados encontrados
