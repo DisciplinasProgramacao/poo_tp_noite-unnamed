@@ -1,9 +1,5 @@
-public class Serie {
-        protected int id;
-        protected String nome;
-        protected String idioma;
-        protected String genero;
-        protected int qtdVisualizacoes;
+public class Serie  extends Conteudos{
+        protected int quantidadeEpisodios;
 
         /**
         * Construtor da classe Serie
@@ -12,25 +8,16 @@ public class Serie {
         * @param nome   nome da sêrie
         * @param idioma idioma da sêrie
         * @param qtdVisualizacoes  quantidade de visualizações da serie
+        * @param quantidadeEpisodios quantidade de episodios que a serie possui
         */
 
-        public Serie(String nome, String idioma, String genero, int qtdVisualizacoes, int id) {
-            this.nome = nome;
-            this.idioma = idioma;
-            this.genero = genero;
-            this.qtdVisualizacoes = qtdVisualizacoes;
-            this.id = id;
+        public Serie(String nome, String idioma, String genero, int qtdVisualizacoes, int id, int quantidadeEpisodios) {
+            super(nome, idioma, genero, qtdVisualizacoes, quantidadeEpisodios);
+            this.quantidadeEpisodios = quantidadeEpisodios;
         }
 
-        
-        
-        public static boolean temNome(String nome) {
-        	return nome.equals(nome);
-        }
-
-        //método para adicionar mais 1 visualização na serie se alguem assistir ela
-        protected void adicionarQtdVisualizacoes(int qtdVisualizacoes){
-            qtdVisualizacoes++;
+        public int getEpisodios(){
+            return this.quantidadeEpisodios;
         }
 }
 
