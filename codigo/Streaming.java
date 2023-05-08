@@ -177,7 +177,7 @@ public class Streaming {
                 String nome = dados[1];
                 String idioma = dados[2];
                 String genero = dados[3];
-                Serie serie = new Serie(nome, idioma, genero, 0, id);
+                Serie serie = new Serie(nome, idioma, genero, 0, id,0);
                 series.add(serie);
             }
             scanner.close();
@@ -197,7 +197,7 @@ public class Streaming {
             scanner.nextLine(); // descarta a primeira linha
             while (scanner.hasNextLine()) {
                 String[] dados = scanner.nextLine().split(";");
-                Serie audiencia = new Serie(dados[0], dados[1], dados[2], 0, 0);
+                Serie audiencia = new Serie(dados[0], dados[1], dados[2], 0, 0,0);
                 audiencias.add(audiencia);
             }
             scanner.close();
