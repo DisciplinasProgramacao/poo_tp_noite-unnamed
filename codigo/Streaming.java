@@ -9,6 +9,7 @@ public class Streaming {
     // "Cliente" é o tipo da chave que foi utilizada e o segundo "Cliente" é o tipo do valor associado a essa chave. "Clientes" é o nome dado para a variavel HashMap.
     private HashMap<Cliente, Integer> Clientes;
     private HashMap<Serie, Integer> Series;
+    private HashMap<Filmes, Integer> Filmes;
     private Cliente contaAtual;
 
 
@@ -86,6 +87,45 @@ public class Streaming {
          return resultadoDaBusca;
       }
 
+      /**
+     * Método para buscar um filme por nome, os métodos "buscarFilmeGenero" e "buscarFilmeIdioma" fazem a mesma coisa só que com filtros
+     * diferentes
+     * 
+     * @param nomeFilme nome do filme a ser buscad
+     * @param listaDeSeries lista de series para fazer a busca
+     * @return novo array list com o resultado da busca
+     */
+
+     public ArrayList<Filmes> buscarFilmeNome(String nomeFilme, ArrayList<Filmes> listaDeFilmes) {
+        ArrayList<Filmes> resultadoDaBusca = new ArrayList<>();
+        for (Filmes filme : listaDeFilmes) {
+            if (filme.nome.equals(nomeFilme)) {
+                resultadoDaBusca.add(filme);
+            }
+        }
+        return resultadoDaBusca;
+    }
+
+    public ArrayList<Filmes> buscarFilmeGenero(String genero, ArrayList<Filmes> listaDeFilmes) {
+        ArrayList<Filmes> resultadoDaBusca = new ArrayList<>();
+        for (Filmes filme : listaDeFilmes) {
+            if (filme.nome.equals(genero)) {
+                resultadoDaBusca.add(filme);
+            }
+        }
+        return resultadoDaBusca;
+    }
+
+    public ArrayList<Filmes> buscarFilmeIdioma(String idioma, ArrayList<Filmes> listaDeFilmes) {
+        ArrayList<Filmes> resultadoDaBusca = new ArrayList<>();
+        for (Filmes filme : listaDeFilmes) {
+            if (filme.nome.equals(idioma)) {
+                resultadoDaBusca.add(filme);
+            }
+        }
+        return resultadoDaBusca;
+    }
+
         /**
          * método para adicionar uma série em uma linked list chamada seriesAssistidas
          * 
@@ -129,5 +169,26 @@ public class Streaming {
             for (Serie serie : cliente.seriesFuturas)
                 cliente.seriesFuturas.remove(serie);
             }
+        }
+
+
+        /**
+         * método para adicionar um filme em uma linked list chamada filmesAssistidos
+         * 
+         * @param filme filme a ser adicionado na lista
+         * @param cliente instancia para a classe cliente
+         */
+        public void adicionarFilmeAssistido(Filmes filme, Cliente cliente) {
+            cliente.filmesAssistidos.addLast(filme);
+        }
+
+        /**
+         * método para adicionar um filme em uma linked list chamada filmesFuturos
+         * 
+         * @param filme filme a ser adicionado na lista
+         * @param cliente instancia para a classe cliente
+         */
+        public void adicionarFilmeFuturo(Filmes filme, Cliente cliente) {
+            cliente.filmesFuturos.addLast(filme);
         }
 }
