@@ -20,7 +20,9 @@ public class ClienteCriador implements LeitorArquivo.CriadorDeObjeto<Cliente> {
         String email = dados[3];
         LinkedList<Serie> seriesFuturas = new LinkedList<>();
         LinkedList<Serie> seriesAssistidas = new LinkedList<>();
-        Cliente cliente = new Cliente(id, nome, senha, email, seriesFuturas, seriesAssistidas);
+        LinkedList<Filmes> filmesFuturos = new LinkedList<>();
+        LinkedList<Filmes> filmesAssistidos = new LinkedList<>();
+        Cliente cliente = new Cliente(id, nome, senha, email, seriesFuturas, seriesAssistidas, filmesAssistidos, filmesFuturos);
         return cliente;
     }
 
