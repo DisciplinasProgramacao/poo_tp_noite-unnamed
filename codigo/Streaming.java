@@ -10,16 +10,13 @@ public class Streaming {
 
 
     /**
-         Construtor da classe Steaming
-         
-        @param contaAtual a conta atual que o cliente está
-        o construtor também está criando os objetos hash corretamente  
+         Construtor da classe Steaming 
         */
 
-    public Streaming(Cliente contaAtual){
-        this.contaAtual = contaAtual;
+    public Streaming(){
         this.Series = new HashMap<Serie, Integer>();
         this.Clientes = new HashMap<Cliente, Integer>();
+        this.Filmes = new HashMap<Filmes, Integer>();
     }
 
     /**
