@@ -7,6 +7,8 @@ public class Cliente {
     private String email;
     public LinkedList<Serie> seriesFuturas;
     public LinkedList<Serie> seriesAssistidas;
+    public LinkedList<Filmes> filmesFuturos;
+    public LinkedList<Filmes> filmesAssistidos;
     
 
      /**
@@ -19,17 +21,23 @@ public class Cliente {
         @param seriesAssistidas lista de series assistidas pelo cliente  
         */
 
-    public Cliente(int id, String nome, String senha, String email, LinkedList<Serie> seriesFuturas, LinkedList<Serie> seriesAssistidas){
+    public Cliente(int id, String nome, String senha, String email, LinkedList<Serie> seriesFuturas, LinkedList<Serie> seriesAssistidas, LinkedList<Filmes> filmesFuturos, LinkedList<Filmes> filmesAssistidos){
         this.id = id;
         this.nome = nome;
         this.senha = senha;
         this.email = email;
         this.seriesFuturas = seriesFuturas;
         this.seriesAssistidas = seriesAssistidas;
+        this.filmesAssistidos = filmesAssistidos;
+        this.filmesFuturos = filmesFuturos;
     }
 
     public LinkedList<Serie> getSeriesAssistidas(){
         return seriesAssistidas;
+    }
+
+    public LinkedList<Filmes> getFilmesAssistidos(){
+        return filmesAssistidos;
     }
 
     public String getEmail(){

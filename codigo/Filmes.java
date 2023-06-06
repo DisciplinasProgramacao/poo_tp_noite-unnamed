@@ -8,7 +8,7 @@ public class Filmes extends Conteudos{
         * @param nome   nome da filme
         * @param idioma idioma da filme
         * @param qtdVisualizacoes  quantidade de visualizações da filme
-        * @param quantidadeEpisodios quantidade de episodios que a filme possui
+        * @param tempoDuracao duracao de um filme
         */
 
         public Filmes(String nome, String idioma, String genero, int qtdVisualizacoes, int id, int tempoDuracao) {

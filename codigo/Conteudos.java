@@ -3,7 +3,7 @@ public class Conteudos {
     protected String nome;
     protected String idioma;
     protected String genero;
-    protected int qtdVisualizacoes;
+    protected int qtdVisualizacoes = 1;
 
     /**
     * Construtor da classe Conteudos
