@@ -9,9 +9,7 @@ Atualizado em 06/06/2023
 | 2. Atualização do diagrama original para contemplar requisito de carga de dados   | Rafael ✔️       |
 | 3. Atualização do diagrama para abrigar o novo tipo de mídia: Filme   | Rafael ✔️       |
 | 4. Implementação da lógica de carga de dados do catálogo de filmes;   | Vinicius ✔️       |
-| 5. Planejamento da semana que vem   | Mestre ✔️       |
-| 6. Organizar o jantar   | Feliz ✔️       |
-| 7. Aguar as plantas   | Dengoso  ✔️      |
+
 ----
 
 ## Tarefas pendentes (em ordem de prioridade)
