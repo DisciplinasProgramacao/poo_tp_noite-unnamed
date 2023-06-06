@@ -39,5 +39,4 @@ public class LeitorArquivo<T> {
     public interface CriadorDeObjeto<T> {
         T criarObjeto(String[] dados);
     }
-
 }
