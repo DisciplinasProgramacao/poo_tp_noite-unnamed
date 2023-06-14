@@ -25,14 +25,14 @@ public class LeitorArquivo<T> {
      */
     public List<T> lerArquivo(String caminhoArquivo, CriadorDeObjeto<T> criadorDeObjeto) throws FileNotFoundException {
         List<T> objetos = new ArrayList<>();
-        Scanner scanner = new Scanner(new File(caminhoArquivo));
-        scanner.nextLine(); // descarta a primeira linha
-        while (scanner.hasNextLine()) {
-            String[] dados = scanner.nextLine().split(";");
+        Scanner ler = new Scanner(new File(caminhoArquivo));
+        ler.nextLine(); // descarta a primeira linha
+        while (ler.hasNextLine()) {
+            String[] dados = ler.nextLine().split(";");
             T objeto = criadorDeObjeto.criarObjeto(dados);
             objetos.add(objeto);
         }
-        scanner.close();
+        ler.close();
         return objetos;
     }
     

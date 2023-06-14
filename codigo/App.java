@@ -8,7 +8,7 @@ public class App {
     Streaming app = new Streaming();
     static int opcao = 0;
 
-    public static void menu(int opcao) {
+    public static void menu() {
 
         System.out.println("1 - Ler Arquivos\n");
         System.out.println("2 - Salvar Arquivos\n");
@@ -20,7 +20,36 @@ public class App {
         System.out.println("Digite uma opção: ");
     }
 
-    public static void main(String[] args) {
+    public static int LerInteiro(int opcao){
+        opcao = entrada.nextInt();
+        return opcao;
+    }
 
+    public static void main(String[] args) {
+        menu();
+        int inteiroDigitado = LerInteiro(opcao);
+        switch(inteiroDigitado){
+            case 1:
+                // Ler os aquivos ....................
+                break;
+            case 2:
+                //Salvar os arquivos .........
+                break;
+            case 3:
+                //Fazer login ...........
+                break;
+            case 4:
+                //Sair da conta .........
+                break;
+            case 5:
+                //Adicionar midias para ver .............
+                break;
+            case 6:
+                //Buscar midias ...............
+                break;
+            case 7:
+                //Sair do programa .........
+                break;
+        }
     }
 }
