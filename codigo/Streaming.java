@@ -3,9 +3,8 @@ import java.util.ArrayList;
 
 public class Streaming {
     // "Cliente" é o tipo da chave que foi utilizada e o segundo "Cliente" é o tipo do valor associado a essa chave. "Clientes" é o nome dado para a variavel HashMap.
-    private HashMap<Cliente, Integer> Clientes;
-    private HashMap<Serie, Integer> Series;
-    private HashMap<Filmes, Integer> Filmes;
+    private HashMap<Cliente, Integer> clientes;
+    private HashMap<IConteudos, Integer> conteudos;
     private Cliente contaAtual;
 
 
@@ -14,9 +13,8 @@ public class Streaming {
         */
 
     public Streaming(){
-        this.Series = new HashMap<Serie, Integer>();
-        this.Clientes = new HashMap<Cliente, Integer>();
-        this.Filmes = new HashMap<Filmes, Integer>();
+        this.conteudos = new HashMap<IConteudos, Integer>();
+        this.clientes = new HashMap<Cliente, Integer>();
     }
 
     /**
@@ -27,7 +25,7 @@ public class Streaming {
      */
 
     public void login(String email, String senha) {
-    for (Cliente cliente : Clientes.keySet()) {
+    for (Cliente cliente : clientes.keySet()) {
         if (cliente.getEmail().equals(email) && cliente.getSenha().equals(senha)) {
             this.contaAtual = cliente;
             return;
@@ -53,7 +51,7 @@ public class Streaming {
         public ArrayList<Serie> buscarSeriesNome(String nomeSerie, ArrayList<Serie> listaDeSeries) {
             ArrayList<Serie> resultadoDaBusca = new ArrayList<>();
             for (Serie serie : listaDeSeries) {
-                if (serie.nome.equals(nomeSerie)) {
+                if (serie.getNome().equals(nomeSerie)) {
                     resultadoDaBusca.add(serie);
                 }
             }
@@ -63,7 +61,7 @@ public class Streaming {
         public ArrayList<Serie> buscarSeriesGenero(String genero, ArrayList<Serie> listaDeGeneros) {
             ArrayList<Serie> resultadoDaBusca = new ArrayList<>();
             for (Serie serie : listaDeGeneros) {
-                if (serie.genero.equals(genero)) {
+                if (serie.getGenero().equals(genero)) {
                     resultadoDaBusca.add(serie);
              }
             }
@@ -73,7 +71,7 @@ public class Streaming {
         public ArrayList<Serie> buscarSeriesIdioma(String idioma, ArrayList<Serie> listaDeIdiomas) {
             ArrayList<Serie> resultadoDaBusca = new ArrayList<>();
             for (Serie serie : listaDeIdiomas) {
-              if (serie.idioma.equals(idioma)) {
+              if (serie.getIdioma().equals(idioma)) {
                   resultadoDaBusca.add(serie);
               }
             }
@@ -92,7 +90,7 @@ public class Streaming {
      public ArrayList<Filmes> buscarFilmeNome(String nomeFilme, ArrayList<Filmes> listaDeFilmes) {
         ArrayList<Filmes> resultadoDaBusca = new ArrayList<>();
         for (Filmes filme : listaDeFilmes) {
-            if (filme.nome.equals(nomeFilme)) {
+            if (filme.getNome().equals(nomeFilme)) {
                 resultadoDaBusca.add(filme);
             }
         }
@@ -102,7 +100,7 @@ public class Streaming {
     public ArrayList<Filmes> buscarFilmeGenero(String genero, ArrayList<Filmes> listaDeFilmes) {
         ArrayList<Filmes> resultadoDaBusca = new ArrayList<>();
         for (Filmes filme : listaDeFilmes) {
-            if (filme.nome.equals(genero)) {
+            if (filme.getGenero().equals(genero)) {
                 resultadoDaBusca.add(filme);
             }
         }
@@ -112,7 +110,7 @@ public class Streaming {
     public ArrayList<Filmes> buscarFilmeIdioma(String idioma, ArrayList<Filmes> listaDeFilmes) {
         ArrayList<Filmes> resultadoDaBusca = new ArrayList<>();
         for (Filmes filme : listaDeFilmes) {
-            if (filme.nome.equals(idioma)) {
+            if (filme.getNome().equals(idioma)) {
                 resultadoDaBusca.add(filme);
             }
         }
@@ -126,21 +124,11 @@ public class Streaming {
          * @param cliente instancia para a classe cliente
          */
         public void adicionarSerieAssistida(Serie serie, Cliente cliente) {
-            cliente.seriesAssistidas.addLast(serie);
+            cliente.conteudosAssistidos.addLast(serie);
         }
     
-        //método para remover uma serie da lista de series assistidas
+        
     
-        /**
-          Remove uma série da lista de séries assistidas
-          @param nomeDaSerie nome da série a ser removida
-         */
-        public void retirarDaListaAssistidas(String nomeDaSerie, Cliente cliente) {
-            if (Serie.temNome(nomeDaSerie)) {
-            for (Serie serie : cliente.seriesAssistidas)
-                cliente.seriesAssistidas.remove(serie);
-            }
-        }
 
         /**
          * método para adicionar uma serie na lista de series para ver futuramente
@@ -149,7 +137,7 @@ public class Streaming {
          * @param cliente instancia para a classe cliente
          */
         public void adicionarSerieFutura(Serie serie, Cliente cliente){
-            cliente.seriesFuturas.add(serie);
+            cliente.conteudosFuturos.add(serie);
         }
 
         /**
@@ -158,10 +146,7 @@ public class Streaming {
          * @param cliente instancia para a classe cliente
          */
         public void retirarDaListaFutura(String nomeDaSerie, Cliente cliente) {
-            if (Serie.temNome(nomeDaSerie)) {
-            for (Serie serie : cliente.seriesFuturas)
-                cliente.seriesFuturas.remove(serie);
-            }
+            cliente.retirarDaListaFutura(nomeDaSerie);
         }
 
 
@@ -171,17 +156,5 @@ public class Streaming {
          * @param filme filme a ser adicionado na lista
          * @param cliente instancia para a classe cliente
          */
-        public void adicionarFilmeAssistido(Filmes filme, Cliente cliente) {
-            cliente.filmesAssistidos.addLast(filme);
-        }
-
-        /**
-         * método para adicionar um filme em uma linked list chamada filmesFuturos
-         * 
-         * @param filme filme a ser adicionado na lista
-         * @param cliente instancia para a classe cliente
-         */
-        public void adicionarFilmeFuturo(Filmes filme, Cliente cliente) {
-            cliente.filmesFuturos.addLast(filme);
-        }
+        
 }

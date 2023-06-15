@@ -5,10 +5,8 @@ public class Cliente {
     private String nome;
     private String senha;
     private String email;
-    public LinkedList<Serie> seriesFuturas;
-    public LinkedList<Serie> seriesAssistidas;
-    public LinkedList<Filmes> filmesFuturos;
-    public LinkedList<Filmes> filmesAssistidos;
+    public LinkedList<IConteudos> conteudosFuturos;
+    public LinkedList<IConteudos> conteudosAssistidos;
     
 
      /**
@@ -17,27 +15,30 @@ public class Cliente {
         @param id id do cliente
         @param nome nome do cliente
         @param senha senha do cliente
-        @param seriesFuturas lista de series para ver futuramente
-        @param seriesAssistidas lista de series assistidas pelo cliente  
+        @param conteudosFuturos lista de Conteudos para ver futuramente
+        @param conteudosAssistidos lista de Conteudos assistidas pelo cliente  
         */
 
-    public Cliente(int id, String nome, String senha, String email, LinkedList<Serie> seriesFuturas, LinkedList<Serie> seriesAssistidas, LinkedList<Filmes> filmesFuturos, LinkedList<Filmes> filmesAssistidos){
+    public Cliente(int id, String nome, String senha, String email, LinkedList<IConteudos> conteudosFuturos, LinkedList<IConteudos> conteudosAssistidos){
         this.id = id;
         this.nome = nome;
         this.senha = senha;
         this.email = email;
-        this.seriesFuturas = seriesFuturas;
-        this.seriesAssistidas = seriesAssistidas;
-        this.filmesAssistidos = filmesAssistidos;
-        this.filmesFuturos = filmesFuturos;
+        this.conteudosFuturos = conteudosFuturos;
+        this.conteudosAssistidos = conteudosAssistidos;
     }
 
-    public LinkedList<Serie> getSeriesAssistidas(){
-        return seriesAssistidas;
+    public LinkedList<IConteudos> getConteudosAssistidos(){
+        return conteudosAssistidos;
     }
 
-    public LinkedList<Filmes> getFilmesAssistidos(){
-        return filmesAssistidos;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public String getEmail(){
@@ -48,16 +49,24 @@ public class Cliente {
         return senha;
     }
 
-    //método para buscar uma serie na lista de series para assistir futuramente e adicionar em uma outra lista de resultados encontrados
+
     /**
      * 
      * @return lista de series encontradas
     */
-    public LinkedList<Serie> buscarSerie(){
-        LinkedList<Serie> resuldadoDaBusca = new LinkedList<Serie>();
-        for (Serie serie : seriesFuturas){
+    public LinkedList<IConteudos> buscarConteudo(){
+        LinkedList<IConteudos> resuldadoDaBusca = new LinkedList<IConteudos>();
+        for (IConteudos serie : this.conteudosFuturos){
             resuldadoDaBusca.add(serie);
         }
         return resuldadoDaBusca;
+    }
+
+    public void retirarDaListaFutura(String nomeDaSerie) {
+        for(IConteudos conteudo : conteudosFuturos){
+            if(conteudo.getNome().equals(nomeDaSerie)){
+                conteudosFuturos.remove(conteudo);
+            }
+        }
     }
 }
