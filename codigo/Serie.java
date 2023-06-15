@@ -54,19 +54,12 @@ public class Serie implements IConteudos {
         this.quantidadeEpisodios = quantidadeEpisodios;
     }
 
-    /**
-     * Registra uma avaliacao da mídia
-     * 
-     * @param avaliacao avaliacao da mídia
-     */
+
     @Override
     public void atualizarAvaliacaoMedia(int avaliacao) {
         this.avaliacaoMedia = (this.avaliacaoMedia * this.qtdAvaliacoes + avaliacao) / ++this.qtdAvaliacoes;
     }
 
-    /**
-     * Adiciona uma Visualizacao a serie
-     */
     @Override
     public void adicionarQtdVisualizacoes() {
         this.qtdVisualizacoes++;
@@ -87,7 +80,7 @@ public class Serie implements IConteudos {
     }
 
     /**
-     * Converte o objeto em uma String no formato: {IdSerie;Nome;DataDeLançamento}
+     * Converte o objeto em uma String no formato: Id | Nome | Genero | DataDeLançamento | qtdvisualizacoes | qtdAvaliacoes | quantidadeEpisodios | avaliacaoMedia
      */
     @Override
     public String toString() {
@@ -96,34 +89,29 @@ public class Serie implements IConteudos {
                 + " | Rating: " + this.avaliacaoMedia;
     }
 
+
+
     public String getNome() { 
         return this.nome; 
     }
-
     public int getID() { 
         return this.id; 
     }
-
     public String getGenero() { 
         return this.genero; 
     }
-
     public String getIdioma() { 
         return this.idioma; 
     }
-
     public int getQtdEp() { 
         return this.quantidadeEpisodios; 
     }
-
     public int getDuracao() { 
         return -1; 
     }
-
     public int getQtdAvaliacoes() { 
         return this.qtdVisualizacoes; 
     }
-
     public int getavaliacaoMedia() { 
         return this.avaliacaoMedia; 
     }

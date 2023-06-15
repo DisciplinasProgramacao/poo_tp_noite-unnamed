@@ -59,9 +59,6 @@ public class Filmes implements IConteudos {
         this.avaliacaoMedia = (this.avaliacaoMedia * this.qtdAvaliacoes + avaliacao) / ++this.qtdAvaliacoes;
     }
 
-    /**
-     * Adiciona uma qtdVisualizacoes a serie
-     */
     @Override
     public void adicionarQtdVisualizacoes() {
         this.qtdVisualizacoes++;
@@ -82,7 +79,7 @@ public class Filmes implements IConteudos {
     }
 
     /**
-     * Converte o objeto em uma String no formato: {IdSerie;Nome;DataDeLançamento}
+     * Converte o objeto em uma String no formato: Id | Nome | Genero | DataDeLançamento | qtdvisualizacoes | qtdAvaliacoes | avaliacaoMedia
      */
     @Override
     public String toString() {
@@ -91,34 +88,29 @@ public class Filmes implements IConteudos {
                 + " | Rating: " + this.avaliacaoMedia;
     }
 
+
+
     public String getNome() { 
         return this.nome; 
     }
-
     public int getID() { 
         return this.id; 
     }
-
     public String getGenero() { 
         return this.genero; 
     }
-
     public String getIdioma() { 
         return this.idioma; 
     }
-
     public int getDuracao() { 
         return this.duracao; 
     }
-
     public int getQtdEp() { 
         return -1; 
     }
-    
     public int getQtdAvaliacoes() { 
         return this.qtdAvaliacoes; 
     }
-    
     public int getavaliacaoMedia() { 
         return this.avaliacaoMedia; 
     }

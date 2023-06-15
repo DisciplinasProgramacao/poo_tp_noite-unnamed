@@ -2,16 +2,12 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 public class Streaming {
-    // "Cliente" é o tipo da chave que foi utilizada e o segundo "Cliente" é o tipo do valor associado a essa chave. "Clientes" é o nome dado para a variavel HashMap.
     private HashMap<Cliente, Integer> clientes;
     private HashMap<IConteudos, Integer> conteudos;
     private Cliente contaAtual;
 
-
-    /**
-         Construtor da classe Steaming 
-        */
-
+    
+    /**Construtor da classe Streaming */
     public Streaming(){
         this.conteudos = new HashMap<IConteudos, Integer>();
         this.clientes = new HashMap<Cliente, Integer>();
@@ -23,7 +19,6 @@ public class Streaming {
      * @param email email do usuario
      * @param senha senha do usuario
      */
-
     public void login(String email, String senha) {
     for (Cliente cliente : clientes.keySet()) {
         if (cliente.getEmail().equals(email) && cliente.getSenha().equals(senha)) {
@@ -39,15 +34,14 @@ public class Streaming {
         this.contaAtual = null;
     }
     
+
     /**
-     * Método para buscar uma serie por nome, os métodos "buscarSeriesGenero" e "buscarSeriesIdioma" fazem a mesma coisa só que com filtros
+     * Método para buscar um conteudo por nome, os métodos "buscarConteudoGenero" e "buscarConteudoIdioma" fazem a mesma coisa só que com filtros
      * diferentes
      * 
-     * @param nomeSerie nome da serie a ser buscada
-     * @param listaDeSeries lista de series para fazer a busca
+     * @param nomeConteudo nome da serie a ser buscada
      * @return novo array list com o resultado da busca
      */
-
         public ArrayList<Serie> buscarSeriesNome(String nomeSerie, ArrayList<Serie> listaDeSeries) {
             ArrayList<Serie> resultadoDaBusca = new ArrayList<>();
             for (Serie serie : listaDeSeries) {
