@@ -14,31 +14,28 @@ public class App {
             int opcao = lerInteiro();
             switch (opcao) {
                 case 1:
-                    app = LeitorArquivo.lerArquivos(app);
-                    break;
-                case 2:
                     entrada.nextLine(); // Limpar o buffer do scanner
                     System.out.print("Gênero: ");
                     String genero = entrada.nextLine();
                     app.buscarConteudoGenero(genero).forEach(System.out::println);
                     break;
-                case 3:
+                case 2:
                     entrada.nextLine(); // Limpar o buffer do scanner
                     System.out.print("Idioma: ");
                     String idioma = entrada.nextLine();
                     app.buscarConteudoIdioma(idioma).forEach(System.out::println);
                     break;
-                case 4:
+                case 3:
                     System.out.print("Quantidade de episódios: ");
                     int quantidadeEpisodios = entrada.nextInt();
                     app.buscarConteudoQtdEpisodios(quantidadeEpisodios).forEach(System.out::println);
                     break;
-                case 5:
+                case 4:
                     System.out.print("Duração: ");
                     int duracao = entrada.nextInt();
                     app.buscarConteudoDuracao(duracao).forEach(System.out::println);
                     break;
-                case 6:
+                case 5:
                     entrada.nextLine(); // Limpar o buffer do scanner
                     System.out.print("Email: ");
                     String login = entrada.nextLine();
@@ -46,21 +43,21 @@ public class App {
                     String senha = entrada.nextLine();
                     app.login(login, senha, false);
                     break;
-                case 7:
+                case 6:
                     app.logOff();
                     break;
-                case 8:
+                case 7:
                     menuAdicionar();
                     int opcaoAdicionar = lerInteiro();
                     menuAdicionarOpcao(opcaoAdicionar);
                     break;
-                case 9:
+                case 8:
                     entrada.nextLine(); // Limpar o buffer do scanner
                     System.out.print("Nome da mídia: ");
                     String nomeMidia = entrada.nextLine();
                     System.out.println(app.buscarMidia(nomeMidia));
                     break;
-                case 10:
+                case 9:
                     lock = false;
                     break;
                 default:
@@ -75,16 +72,16 @@ public class App {
     }
 
     public static void menu() {
-        System.out.println("1 - Ler Arquivos\n");
-        System.out.println("2 - buscar por Gênero\n");
-        System.out.println("3 - buscar por Idioma\n");
-        System.out.println("4 - buscar por Quantidade de Episódios\n");
-        System.out.println("5 - buscar filmes por duração\n");
-        System.out.println("6 - Login\n");
-        System.out.println("7 - Logout\n");
-        System.out.println("8 - Adicionar Mídia/Audiência/Para Ver\n");
-        System.out.println("9 - Buscar Mídia\n");
-        System.out.println("10 - Sair\n");
+        System.out.println("========Sistema de Streaming========");
+        System.out.println("1 - buscar por Gênero\n");
+        System.out.println("2 - buscar por Idioma\n");
+        System.out.println("3 - buscar por Quantidade de Episódios\n");
+        System.out.println("4 - buscar filmes por duração\n");
+        System.out.println("5 - Login\n");
+        System.out.println("6 - Logout\n");
+        System.out.println("7 - Adicionar Mídia/Audiência/Para Ver\n");
+        System.out.println("8 - Buscar Mídia\n");
+        System.out.println("9 - Sair\n");
         System.out.println("Digite uma opção: ");
     }
 

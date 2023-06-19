@@ -1,5 +1,5 @@
 public interface IConteudos {
-
+    // Vetores para controlar os generos que vai ter na plataforma e seus idiomas
     String[] GENEROS = { "Ação", "Anime", "Aventura", "Comédia", "Documentário", "Drama", "Policial", "Romance",
             "Suspense"};
 
