@@ -1,42 +1,71 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-/*
- * A classe LeitorArquivo recebe um parâmetro genérico T, que representa o tipo de objeto que será criado a partir do arquivo. O método lerArquivo recebe o caminho do arquivo a ser lido e um objeto do tipo CriadorDeObjeto, que é uma interface funcional que será utilizada para criar o objeto a partir dos dados lidos do arquivo.
- * 
- * 
- * A interface CriadorDeObjeto também é parametrizada, recebendo o tipo do objeto a ser criado. Ela possui um único método criarObjeto que recebe um array de strings contendo os dados lidos do arquivo e retorna um objeto do tipo T. Dessa forma, é possível criar diferentes implementações dessa interface para criar objetos de diferentes classes.
- * 
- * 
- * Para utilizar essa classe para ler os dados dos espectadores, podemos criar uma classe que implementa a interface CriadorDeObjeto e define como criar um objeto do tipo Cliente.
- */
 
-public class LeitorArquivo<T> {
-    
+/**
+ * Classe usado para ler e escrever os arquivos csv da plataforma de streaming, não instanciável.
+ */
+final public class LeitorArquivo {
+
     /**
-     *  Método para ler arquivos passados por parametro
+     * Le os arquivos Arquivos/POO_Audiencia.csv, Arquivos/POO_Series.csv e Arquivos/POO_Espectadores.csv e
+     * os carrega na plataforma de streaming.
      * 
-     * @param caminhoArquivo caminho do arquivo
-     * @param criadorDeObjeto objeto criado e passado por parametro
-     * @return retorna uma lista de objetos
-     * @throws FileNotFoundException
+     * @param app plataforma de streaming com ou sem dados
+     * @return plataforma de streaming com os dados já existentes + dados lidos
      */
-    public List<T> lerArquivo(String caminhoArquivo, CriadorDeObjeto<T> criadorDeObjeto) throws FileNotFoundException {
-        List<T> objetos = new ArrayList<>();
-        Scanner ler = new Scanner(new File(caminhoArquivo));
-        ler.nextLine(); // descarta a primeira linha
-        while (ler.hasNextLine()) {
-            String[] dados = ler.nextLine().split(";");
-            T objeto = criadorDeObjeto.criarObjeto(dados);
-            objetos.add(objeto);
+    public static Streaming lerArquivos(Streaming app) {
+        try {
+            //========Espectadores========
+            Scanner ler = new Scanner(new File("Arquivos/POO_Espectadores.csv")).useDelimiter(";|\\n");
+
+            while (ler.hasNext())
+                app.adicionarCliente(new Cliente(ler.next(), // Nome
+                        ler.next(), // Login
+                        ler.next() // Senha
+                ));
+            ler.close();
+
+            //========Series========
+            ler = new Scanner(new File("Arquivos/POO_Series.csv")).useDelimiter(";|\\n");
+
+            while (ler.hasNext()) {
+                app.adicionarMidia(new Serie(
+                        Integer.parseInt(ler.next()), // Id
+                        ler.next(), // Nome
+                        LocalDate.parse(ler.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy")) // DataDeLançamento
+                ));
+            }
+            ler.close();
+
+            //========Filmes========
+            ler = new Scanner(new File("Arquivos/POO_Filmes.csv")).useDelimiter(";|\\n");
+
+            while (ler.hasNext())
+                app.adicionarMidia(new Filme(
+                        Integer.parseInt(ler.next()), // Id
+                        ler.next(), LocalDate.parse(ler.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy")), 
+                        Integer.parseInt(ler.next()) 
+                ));
+            ler.close();
+
+            //========Audiencia========
+            ler = new Scanner(new File("Arquivos/POO_Audiencia.csv")).useDelimiter(";|\\n");
+
+            while (ler.hasNext()) {
+                app.login(ler.next(), null, true);
+                app.registrarAudiencia(ler.next().charAt(0) == 'A', app.buscarMidia(Integer.parseInt(ler.next())),
+        false //Nao ha nota na leiura do arquivo
+                );
+            }
+            app.logOff();
+            ler.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(" Arquivo não encontrado.");
         }
-        ler.close();
-        return objetos;
-    }
-    
-    public interface CriadorDeObjeto<T> {
-        T criarObjeto(String[] dados);
+
+        return app;
     }
 }

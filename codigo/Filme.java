@@ -1,7 +1,7 @@
-import java.time.LocalDate;
 import java.util.Random;
+import java.time.LocalDate;
 
-public class Serie implements IConteudos {
+public class Filme implements IConteudos {
     private final int id;
     private String nome;
     private String genero;
@@ -9,18 +9,18 @@ public class Serie implements IConteudos {
     private int qtdVisualizacoes;
     private int avaliacaoMedia;
     private int qtdAvaliacoes;
-    private int quantidadeEpisodios;
+    private int duracao;
     private LocalDate dataLancamento;
 
     /**
-     * Construtor da classe Serie para leitura de arquivos
+     * Construtor da classe Filme para leitura de arquivos
      * 
-     * @param id id da serie
-     * @param nome nome da serie
-     * @param dataLancamento data de lançamento da serie
+     * @param id do filme
+     * @param nome do filme
+     * @param dataLancamento data de lançamento do filme
+     * @param duracao do filme
      */
-    
-    public Serie(int id, String nome, LocalDate dataLancamento) {
+    public Filme(int id, String nome, LocalDate dataLancamento, int duracao) {
         this.id = id;
         this.genero = sortearGenero();
         this.nome = nome;
@@ -29,20 +29,20 @@ public class Serie implements IConteudos {
         this.qtdVisualizacoes = 0;
         this.avaliacaoMedia = 0;
         this.qtdAvaliacoes = 0;
-        this.quantidadeEpisodios = 10;
+        this.duracao = duracao;
     }
 
     /**
-     * Construtor da classe Serie
+     * Construtor da classe Filme
      * 
-     * @param id id da serie
-     * @param genero genero da serie
-     * @param nome nome da serie
-     * @param idioma idioma da serie
-     * @param dataLancamento data de lançamento da serie
-     * @param quantidadeEpisodios quantidade de episodios da serie
+     * @param id do filme
+     * @param genero do filme
+     * @param nome do filme
+     * @param idioma do filme
+     * @param dataLancamento data de lançamento do filme
+     * @param duracao do filme
      */
-    public Serie(int id, String genero, String nome, String idioma, LocalDate dataLancamento, int quantidadeEpisodios) {
+    public Filme(int id, String genero, String nome, String idioma, LocalDate dataLancamento, int duracao) {
         this.id = id;
         this.genero = genero;
         this.nome = nome;
@@ -51,13 +51,13 @@ public class Serie implements IConteudos {
         this.qtdVisualizacoes = 0;
         this.avaliacaoMedia = 0;
         this.qtdAvaliacoes = 0;
-        this.quantidadeEpisodios = quantidadeEpisodios;
+        this.duracao = duracao;
     }
 
     /**
-     * Registra uma avaliacao da mídia
+     * atualiza uma avaliacao do conteudo
      * 
-     * @param avaliacao avaliacao da mídia
+     * @param avaliacao avaliacao do conteudo
      */
     @Override
     public void atualizarAvaliacaoMedia(int avaliacao) {
@@ -65,7 +65,7 @@ public class Serie implements IConteudos {
     }
 
     /**
-     * Adiciona uma Visualizacao a serie
+     * Adiciona uma qtdVisualizacoes a serie
      */
     @Override
     public void adicionarQtdVisualizacoes() {
@@ -79,20 +79,16 @@ public class Serie implements IConteudos {
         return GENEROS[n];
     }
 
-    @Override
     public String sortearIdioma(){
         Random rd = new Random();
         int n = rd.nextInt(5);
         return GENEROS[n];
     }
 
-    /**
-     * Converte o objeto em uma String no formato: {IdSerie;Nome;DataDeLançamento}
-     */
     @Override
     public String toString() {
         return " ID: " + this.id + " | Nome: " + this.nome + " | Genero: " + this.genero + " | Data de Lançamento: "
-                + this.dataLancamento + " | Audiencia: " + this.qtdVisualizacoes + "| Quantidade de Episodios: " + this.quantidadeEpisodios
+                + this.dataLancamento + " | qtdVisualizacoes: " + this.qtdVisualizacoes + "| Avaliacoes: " + this.qtdAvaliacoes
                 + " | Rating: " + this.avaliacaoMedia;
     }
 
@@ -112,19 +108,23 @@ public class Serie implements IConteudos {
         return this.idioma; 
     }
 
-    public int getQtdEpisodios() { 
-        return this.quantidadeEpisodios; 
+    public int getDuracao() { 
+        return this.duracao; 
     }
 
-    public int getDuracao() { 
+    public int getQtdEpisodios() { 
         return -1; 
     }
-
-    public int getAudiencia() { 
-        return this.qtdVisualizacoes; 
+    
+    public int getQtdAvaliacoes() { 
+        return this.qtdAvaliacoes; 
     }
-
+    
     public int getavaliacaoMedia() { 
         return this.avaliacaoMedia; 
+    }
+
+    public int getQtdVisualizacoes() { 
+        return this.qtdVisualizacoes; 
     }
 }
