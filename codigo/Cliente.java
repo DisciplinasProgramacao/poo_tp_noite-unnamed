@@ -73,7 +73,7 @@ public class Cliente {
                 .filter(midia -> midia.getGenero().equals(genero))
                 .map(midia -> {
                     String avaliacao = this.avaliacoes.get(midia.getId());
-                    return midia + " | Sua avaliacao: " + (avaliacao == null ? "Voce nao deu avaliacao" : avaliacao);
+                    return midia + " | Sua avaliacao: " + (avaliacao == null ? "Voce não fez uma avaliação" : avaliacao);
                 });
     }
 
@@ -88,7 +88,7 @@ public class Cliente {
                 .filter(midia -> midia.getIdioma().equals(idioma))
                 .map(i -> {
                     String avaliacao = this.avaliacoes.get(i.getId());
-                    return i + " | Sua avaliacao: " + (avaliacao == null ? "Voce nao deu avaliacao" : avaliacao);
+                    return i + " | Sua avaliacao: " + (avaliacao == null ? "Voce nao fez uma avaliação" : avaliacao);
                 });
     }
 
@@ -103,7 +103,7 @@ public class Cliente {
                 .filter(midia -> midia.getQtdEpisodios() == qntsEpisodios)
                 .map(i -> {
                     String avaliacao = this.avaliacoes.get(i.getId());
-                    return i + " | Sua avaliacao: " + (avaliacao == null ? "Voce nao deu avaliacao" : avaliacao);
+                    return i + " | Sua avaliacao: " + (avaliacao == null ? "Voce nao deu avaliação" : avaliacao);
                 });
     }
 
@@ -113,12 +113,12 @@ public class Cliente {
      * @param duracao a ser buscada
      * @return lista de filmes buscada
      */
-    public Stream<String> buscarPorDuracao(int duracao) {
+    public Stream<String> buscarPorDuracao(String duracao) {
         return this.conteudosAssistidos.stream()
                 .filter(midia -> midia.getDuracao() == duracao)
                 .map(i -> {
                     String avaliacao = this.avaliacoes.get(i.getId());
-                    return i + " | Sua avaliacao: " + (avaliacao == null ? "Voce nao deu avaliacao" : avaliacao);
+                    return i + " | Sua avaliacao: " + (avaliacao == null ? "Voce nao deu avaliação" : avaliacao);
                 });
     }
 

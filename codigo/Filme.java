@@ -1,5 +1,5 @@
 import java.util.Random;
-import java.time.LocalDate;
+// import java.time.String;
 
 public class Filme implements IConteudos {
     private final int id;
@@ -9,8 +9,8 @@ public class Filme implements IConteudos {
     private int qtdVisualizacoes;
     private int avaliacaoMedia;
     private int qtdAvaliacoes;
-    private int duracao;
-    private LocalDate dataLancamento;
+    private String duracao;
+    private String dataLancamento;
 
     /**
      * Construtor da classe Filme para leitura de arquivos
@@ -20,7 +20,7 @@ public class Filme implements IConteudos {
      * @param dataLancamento data de lançamento do filme
      * @param duracao do filme
      */
-    public Filme(int id, String nome, LocalDate dataLancamento, int duracao) {
+    public Filme(int id, String nome, String dataLancamento, String duracao) {
         this.id = id;
         this.genero = sortearGenero();
         this.nome = nome;
@@ -42,7 +42,7 @@ public class Filme implements IConteudos {
      * @param dataLancamento data de lançamento do filme
      * @param duracao do filme
      */
-    public Filme(int id, String genero, String nome, String idioma, LocalDate dataLancamento, int duracao) {
+    public Filme(int id, String genero, String nome, String idioma, String dataLancamento, String duracao) {
         this.id = id;
         this.genero = genero;
         this.nome = nome;
@@ -108,7 +108,7 @@ public class Filme implements IConteudos {
         return this.idioma; 
     }
 
-    public int getDuracao() { 
+    public String getDuracao() { 
         return this.duracao; 
     }
 

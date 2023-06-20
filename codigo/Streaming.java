@@ -158,7 +158,7 @@ public class Streaming {
      * @param duracao duracao dos filmes a serem filtrados
      * @return Lista com os filmes com a duracao passada como parâmetro
      */
-    public Stream<String> buscarConteudoDuracao(int duracao) {
+    public Stream<String> buscarConteudoDuracao(String duracao) {
         if (this.contaAtual.isPresent()) // Se o cliente estiver logado, filtra os filmes dele
             return this.contaAtual.get().buscarPorDuracao(duracao);
 
@@ -177,18 +177,17 @@ public class Streaming {
     public IConteudos buscarMidia(int idMidia) {
         return this.conteudos.get(idMidia);
     }
-
     /**
      * Busca uma midia na plataforma de streaming pelo nome.
      * 
      * @param nomeMidia nome da midia a ser buscada.
      * @return IMidia com o nome passado como parâmetro, NULL caso nao exista.
      */ 
-    public String buscarMidia(String nomeMidia) {
-        return this.conteudos.get(this.nomes.get(nomeMidia)) +
-                (this.contaAtual.isPresent()
-                        ? " Sua avaliação: " + String.valueOf(this.contaAtual.get().getAvaliacao(this.nomes.get(nomeMidia)))
-                        : "");
+    public IConteudos buscarMidia(String nomeMidia) {
+        return this.conteudos.get(this.nomes.get(nomeMidia));
+                // (this.contaAtual.isPresent()
+                //         ? " Sua avaliação: " + String.valueOf(this.contaAtual.get().getAvaliacao(this.nomes.get(nomeMidia)))
+                //         : "");
     }
 
     /**

@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+// import java.time.String;
 import java.util.Random;
 
 public class Serie implements IConteudos {
@@ -10,7 +11,7 @@ public class Serie implements IConteudos {
     private int avaliacaoMedia;
     private int qtdAvaliacoes;
     private int quantidadeEpisodios;
-    private LocalDate dataLancamento;
+    private String dataLancamento;
 
     /**
      * Construtor da classe Serie para leitura de arquivos
@@ -20,7 +21,7 @@ public class Serie implements IConteudos {
      * @param dataLancamento data de lançamento da serie
      */
     
-    public Serie(int id, String nome, LocalDate dataLancamento) {
+    public Serie(int id, String nome, String dataLancamento) {
         this.id = id;
         this.genero = sortearGenero();
         this.nome = nome;
@@ -42,7 +43,7 @@ public class Serie implements IConteudos {
      * @param dataLancamento data de lançamento da serie
      * @param quantidadeEpisodios quantidade de episodios da serie
      */
-    public Serie(int id, String genero, String nome, String idioma, LocalDate dataLancamento, int quantidadeEpisodios) {
+    public Serie(int id, String genero, String nome, String idioma, String dataLancamento, int quantidadeEpisodios) {
         this.id = id;
         this.genero = genero;
         this.nome = nome;
@@ -116,8 +117,8 @@ public class Serie implements IConteudos {
         return this.quantidadeEpisodios; 
     }
 
-    public int getDuracao() { 
-        return -1; 
+    public String getDuracao() { 
+        return ""; 
     }
 
     public int getAudiencia() { 
