@@ -5,7 +5,21 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class LeitorArquivo {
+
+
+
+/**
+ * Classe usado para ler e escrever os arquivos csv da plataforma de streaming.
+ */
+final public class LeitorArquivo {
+
+    /**
+     * Le os arquivos Arquivos/POO_Audiencia.csv, Arquivos/POO_Series.csv e Arquivos/POO_Espectadores.csv e
+     * os carrega na plataforma.
+     * 
+     * @param app plataforma de streaming com ou sem dados
+     * @return plataforma de streaming com os dados já existentes + dados lidos
+     */
 
     public static Streaming lerArquivos(Streaming app) {
         try {
